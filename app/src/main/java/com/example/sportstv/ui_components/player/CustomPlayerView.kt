@@ -23,6 +23,7 @@ fun CustomPlayerView(
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .then(modifier)
     ) {
         val context = LocalContext.current
 

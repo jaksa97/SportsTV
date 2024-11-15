@@ -32,6 +32,11 @@ import com.example.sportstv.utils.Constants
 fun SingleChannelItem(
     modifier: Modifier = Modifier,
     channel: ChannelModel,
+    textStyle: TextStyle = TextStyle(
+        fontSize = 20.sp,
+        fontWeight = FontWeight(500),
+        textAlign = TextAlign.Center
+    ),
     onChannelClick: () -> Unit
 ) {
     Card(
@@ -67,11 +72,7 @@ fun SingleChannelItem(
                     .align(Alignment.BottomCenter),
                 text = channel.name,
                 color = Color.Black,
-                style = TextStyle(
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight(500),
-                    textAlign = TextAlign.Center
-                )
+                style = textStyle
             )
         }
     }
