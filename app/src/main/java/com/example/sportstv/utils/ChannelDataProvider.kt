@@ -24,13 +24,19 @@ object ChannelDataProvider {
 
     fun createMediaSource(): HlsMediaSource? {
         return dataSourceFactory?.let {
-            HlsMediaSource.Factory(it).createMediaSource(MediaItem.fromUri(Uri.parse(
-                currentChannel.value?.url)))
+            HlsMediaSource.Factory(it).createMediaSource(
+                MediaItem.fromUri(
+                    Uri.parse(
+                        currentChannel.value?.url
+                    )
+                )
+            )
         }
     }
 
     fun createDataSourceFactory() {
-        dataSourceFactory = DefaultHttpDataSource.Factory().setUserAgent(Constants.USER_AGENT).setDefaultRequestProperties(creteHeaders())
+        dataSourceFactory = DefaultHttpDataSource.Factory().setUserAgent(Constants.USER_AGENT)
+            .setDefaultRequestProperties(creteHeaders())
     }
 
     private fun creteHeaders(): MutableMap<String, String> {
@@ -48,6 +54,7 @@ object ChannelDataProvider {
             currentChannelIndex.intValue += 1
         }
         currentChannel.value = Constants.CHANNELS[currentChannelIndex.intValue]
+        createMediaSource()?.let { player.value?.setMediaSource(it) }
         player.value?.playWhenReady = true
     }
 
@@ -58,6 +65,7 @@ object ChannelDataProvider {
             currentChannelIndex.intValue -= 1
         }
         currentChannel.value = Constants.CHANNELS[currentChannelIndex.intValue]
+        createMediaSource()?.let { player.value?.setMediaSource(it) }
         player.value?.playWhenReady = true
     }
 }

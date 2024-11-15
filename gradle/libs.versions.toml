@@ -28,6 +28,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 android-exoplayer = { group = "com.google.android.exoplayer", name = "exoplayer", version.ref = "exoPlayer"}
+android-exoplayer-ui = { group = "com.google.android.exoplayer", name = "exoplayer-ui", version.ref = "exoPlayer" }
 
 #implementation("com.google.android.exoplayer:extension-mediasession:${Version.exoPlayer}")
 #implementation("com.google.android.exoplayer:exoplayer-core:${Version.exoPlayer}")

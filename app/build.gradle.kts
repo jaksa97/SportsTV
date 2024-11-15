@@ -62,4 +62,5 @@ dependencies {
 
     // ExoPlayer
     implementation(libs.android.exoplayer)
+    implementation(libs.android.exoplayer.ui)
 }
