@@ -9,12 +9,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.sportstv.ui_components.rv_items.SingleChannelItem
+import com.example.sportstv.utils.ChannelDataProvider
 import com.example.sportstv.utils.Constants
 
 @Composable
 fun ChannelsGrid(
     modifier: Modifier = Modifier,
-    onChannelClick: (Int) -> Unit
+    onChannelClick: () -> Unit
 ) {
     LazyVerticalGrid(
         modifier = Modifier
@@ -28,7 +29,8 @@ fun ChannelsGrid(
             SingleChannelItem(
                 channel = Constants.CHANNELS[index],
                 onChannelClick = {
-                    onChannelClick.invoke(index)
+                    ChannelDataProvider.setCurrentChannel(index)
+                    onChannelClick.invoke()
                 }
             )
         }
